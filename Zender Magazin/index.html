@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zender — компьютерная техника</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true">
+    <div class="page-bg__gradient"></div>
+    <div class="page-bg__mesh"></div>
+    <div class="page-bg__orb page-bg__orb--1"></div>
+    <div class="page-bg__orb page-bg__orb--2"></div>
+    <div class="page-bg__orb page-bg__orb--3"></div>
+    <div class="page-bg__orb page-bg__orb--4"></div>
+    <div class="page-bg__shapes">
+      <span class="page-bg__shape"></span>
+      <span class="page-bg__shape"></span>
+      <span class="page-bg__shape"></span>
+      <span class="page-bg__shape"></span>
+      <span class="page-bg__shape"></span>
+      <span class="page-bg__shape"></span>
+    </div>
+  </div>
+
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="#top" aria-label="Zender">
+        <span class="logo__icon" aria-hidden="true">
+          <svg class="logo__svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logo-grad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#14b8a6"/>
+                <stop offset="0.5" stop-color="#3b82f6"/>
+                <stop offset="1" stop-color="#8b5cf6"/>
+              </linearGradient>
+              <linearGradient id="logo-shine" x1="0" y1="0" x2="48" y2="48">
+                <stop stop-color="#fff" stop-opacity="0.5"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="44" height="44" rx="14" fill="url(#logo-grad)"/>
+            <rect x="2" y="2" width="44" height="44" rx="14" fill="url(#logo-shine)"/>
+            <path d="M14 16h14l-8 8h10v8H14l8-8H14v-8z" fill="#fff" fill-opacity="0.95"/>
+            <circle cx="36" cy="14" r="3" fill="#fff" fill-opacity="0.85"/>
+          </svg>
+        </span>
+        <span class="logo__wordmark">
+          <span class="logo__text">Zender</span>
+          <span class="logo__sub">STORE</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="nav" id="site-nav">
+        <ul class="nav__list">
+          <li><a class="nav__link is-active" href="#catalog" data-section="catalog" data-i18n="nav.catalog">Каталог</a></li>
+          <li><a class="nav__link" href="#laptops" data-section="laptops" data-i18n="nav.laptops">Ноутбуки</a></li>
+        </ul>
+
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-switch__btn is-active" data-lang="ru">RU</button>
+          <button type="button" class="lang-switch__btn" data-lang="uz">UZ</button>
+          <button type="button" class="lang-switch__btn" data-lang="en">EN</button>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Магазин компьютерной техники</p>
+        <h1 class="hero__title" data-i18n="hero.title">Zender — всё для вашего ПК</h1>
+        <p class="hero__lead" data-i18n="hero.lead">Процессоры, SSD, память, мониторы и ноутбуки от ведущих брендов.</p>
+        <div class="search-bar">
+          <svg class="search-bar__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="search" class="search-bar__input" id="search-input" autocomplete="off" data-i18n-placeholder="search.placeholder">
+        </div>
+      </div>
+    </section>
+
+    <div class="shop container" id="shop">
+      <aside class="filters" id="filters-panel">
+        <div class="filters__head">
+          <h2 class="filters__title" data-i18n="filters.title">Фильтры</h2>
+          <button type="button" class="filters__reset" id="filters-reset" data-i18n="filters.reset">Сбросить</button>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-group__label" data-i18n="filters.price">Цена</h3>
+          <div class="price-range">
+            <label class="price-range__field">
+              <span data-i18n="filters.from">от</span>
+              <input type="number" id="price-min" min="0" step="1000" placeholder="0">
+            </label>
+            <label class="price-range__field">
+              <span data-i18n="filters.to">до</span>
+              <input type="number" id="price-max" min="0" step="1000" placeholder="∞">
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-group__label" data-i18n="filters.brand">Бренд</h3>
+          <div class="filter-checks" id="brand-filters"></div>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-group__label" data-i18n="filters.category">Категория</h3>
+          <div class="filter-checks" id="category-filters"></div>
+        </div>
+      </aside>
+
+      <section class="catalog">
+        <header class="catalog__head">
+          <h2 class="catalog__title" id="catalog-title" data-i18n="catalog.title">Каталог</h2>
+          <p class="catalog__count" id="products-count"></p>
+        </header>
+        <div class="products-grid" id="products-grid"></div>
+        <p class="catalog__empty" id="catalog-empty" hidden data-i18n="catalog.empty">Товары не найдены. Измените фильтры или поиск.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__brand">© <span id="year"></span> Zender</p>
+      <a class="footer__link" href="#top" data-i18n="footer.top">Наверх</a>
+    </div>
+  </footer>
+
+  <!-- Admin login -->
+  <dialog class="modal" id="admin-login-modal">
+    <form class="modal__box" id="admin-login-form" method="dialog">
+      <button type="button" class="modal__close" data-close-modal aria-label="Close">&times;</button>
+      <h2 class="modal__title" data-i18n="admin.loginTitle">Вход администратора</h2>
+      <label class="field">
+        <span class="field__label" data-i18n="admin.password">Пароль</span>
+        <input class="field__input" type="password" id="admin-password" required autocomplete="current-password">
+      </label>
+      <p class="field__error" id="admin-login-error" hidden data-i18n="admin.wrongPassword">Неверный пароль</p>
+      <button type="submit" class="btn btn--primary btn--full" data-i18n="admin.enter">Войти</button>
+    </form>
+  </dialog>
+
+  <!-- Admin panel -->
+  <dialog class="modal modal--wide" id="admin-panel-modal">
+    <div class="modal__box">
+      <button type="button" class="modal__close" data-close-modal aria-label="Close">&times;</button>
+      <header class="admin-head">
+        <h2 class="modal__title" data-i18n="admin.panelTitle">Панель администратора</h2>
+        <button type="button" class="btn btn--ghost btn--sm" id="admin-logout" data-i18n="admin.logout">Выйти</button>
+      </header>
+
+      <section class="admin-section">
+        <h3 class="admin-section__title" data-i18n="admin.addProduct">Добавить товар</h3>
+        <form class="admin-form" id="admin-add-form">
+          <div class="admin-form__grid">
+            <label class="field field--full">
+              <span class="field__label" data-i18n="admin.nameRu">Название (RU)</span>
+              <input class="field__input js-auto-translate" name="nameRu" id="admin-add-name-ru" required autocomplete="off">
+              <span class="field__hint" data-i18n="admin.autoFillHint">UZ и EN заполнятся автоматически</span>
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="admin.nameUz">Название (UZ)</span>
+              <input class="field__input" name="nameUz" id="admin-add-name-uz" required>
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="admin.nameEn">Название (EN)</span>
+              <input class="field__input" name="nameEn" id="admin-add-name-en" required>
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="admin.price">Цена (сум)</span>
+              <input class="field__input" type="number" name="price" min="0" step="1000" required>
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="admin.brand">Бренд</span>
+              <select class="field__input" name="brand" id="admin-brand-select" required></select>
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="admin.category">Категория</span>
+              <select class="field__input" name="category" id="admin-category-select" required></select>
+            </label>
+            <label class="field field--full">
+              <span class="field__label" data-i18n="admin.imageUrl">Ссылка на фото (необязательно)</span>
+              <input class="field__input" type="url" name="image" placeholder="https://...">
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary" data-i18n="admin.addBtn">Добавить</button>
+        </form>
+      </section>
+
+      <section class="admin-section">
+        <h3 class="admin-section__title" data-i18n="admin.categories">Категории</h3>
+        <form class="admin-form" id="admin-category-form">
+          <div class="admin-form__grid">
+            <label class="field field--full">
+              <span class="field__label" data-i18n="admin.catNameRu">Название категории (RU)</span>
+              <input class="field__input js-auto-translate" name="catNameRu" id="admin-cat-name-ru" required autocomplete="off">
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="admin.catNameUz">Название (UZ)</span>
+              <input class="field__input" name="catNameUz" id="admin-cat-name-uz" required>
+            </label>
+            <label class="field">
+              <span class="field__label" data-i18n="admin.catNameEn">Название (EN)</span>
+              <input class="field__input" name="catNameEn" id="admin-cat-name-en" required>
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary" data-i18n="admin.addCategory">Добавить категорию</button>
+        </form>
+        <ul class="admin-cat-list" id="admin-categories-list"></ul>
+      </section>
+
+      <section class="admin-section">
+        <h3 class="admin-section__title" data-i18n="admin.editProducts">Редактировать товары</h3>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="admin-products-table">
+            <thead>
+              <tr>
+                <th data-i18n="admin.tableName">Название</th>
+                <th data-i18n="admin.tablePrice">Цена</th>
+                <th data-i18n="admin.tableActions">Действия</th>
+              </tr>
+            </thead>
+            <tbody id="admin-products-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </dialog>
+
+  <!-- Edit product -->
+  <dialog class="modal modal--wide" id="admin-edit-modal">
+    <form class="modal__box" id="admin-edit-form">
+      <button type="button" class="modal__close" data-close-modal aria-label="Close">&times;</button>
+      <h2 class="modal__title" data-i18n="admin.editTitle">Редактировать товар</h2>
+      <input type="hidden" name="productId" id="admin-edit-id">
+      <div class="admin-form__grid">
+        <label class="field field--full">
+          <span class="field__label" data-i18n="admin.nameRu">Название (RU)</span>
+          <input class="field__input js-auto-translate" name="nameRu" id="admin-edit-name-ru" required>
+        </label>
+        <label class="field">
+          <span class="field__label" data-i18n="admin.nameUz">Название (UZ)</span>
+          <input class="field__input" name="nameUz" id="admin-edit-name-uz" required>
+        </label>
+        <label class="field">
+          <span class="field__label" data-i18n="admin.nameEn">Название (EN)</span>
+          <input class="field__input" name="nameEn" id="admin-edit-name-en" required>
+        </label>
+        <label class="field">
+          <span class="field__label" data-i18n="admin.price">Цена (сум)</span>
+          <input class="field__input" type="number" name="price" id="admin-edit-price" min="0" step="1000" required>
+        </label>
+        <label class="field">
+          <span class="field__label" data-i18n="admin.brand">Бренд</span>
+          <select class="field__input" name="brand" id="admin-edit-brand" required></select>
+        </label>
+        <label class="field">
+          <span class="field__label" data-i18n="admin.category">Категория</span>
+          <select class="field__input" name="category" id="admin-edit-category" required></select>
+        </label>
+        <label class="field field--full">
+          <span class="field__label" data-i18n="admin.imageUrl">Ссылка на фото (необязательно)</span>
+          <input class="field__input" type="url" name="image" id="admin-edit-image" placeholder="https://...">
+        </label>
+      </div>
+      <div class="admin-form__actions">
+        <button type="button" class="btn btn--primary" id="admin-edit-save" data-i18n="admin.save">Сохранить</button>
+        <button type="button" class="btn btn--ghost" data-close-modal data-i18n="admin.cancel">Отмена</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js?v=5"></script>
+</body>
+</html>
